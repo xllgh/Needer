@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">助手</string>
+    <string name="ledge">记账本</string>
+    <string name="photo">相册</string>
+    <string name="sport">运动</string>
+    <string name="knowledge">知识积累</string>
+    <string name="plan">计划</string>
+    <string name="appLock">应用锁</string>
+</resources>

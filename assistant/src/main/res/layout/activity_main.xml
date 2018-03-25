@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideLineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="77dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideLineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideLineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideLineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <TextView
+        android:id="@+id/ledger"
+        android:layout_width="@dimen/tab_size"
+        android:layout_height="@dimen/tab_size"
+        android:gravity="center"
+        android:text="ledger"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/sport"
+        app:layout_constraintEnd_toStartOf="@+id/photo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/guideLineStart"
+        app:layout_constraintTop_toTopOf="@id/guideLineTop"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/photo"
+        android:layout_width="@dimen/tab_size"
+        android:layout_height="@dimen/tab_size"
+        android:text="photo"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/knowledge"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/ledger"
+        app:layout_constraintTop_toTopOf="@id/guideLineTop"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+
+    <TextView
+        android:id="@+id/sport"
+        android:layout_width="@dimen/tab_size"
+        android:layout_height="@dimen/tab_size"
+        android:layout_marginTop="4dp"
+        android:text="Sport"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/knowledge"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/guideLineStart"
+        app:layout_constraintTop_toBottomOf="@+id/ledger"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/knowledge"
+        android:layout_width="@dimen/tab_size"
+        android:layout_height="@dimen/tab_size"
+        android:layout_marginTop="4dp"
+        android:text="knowledge"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/appLock"
+        app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/sport"
+        app:layout_constraintTop_toBottomOf="@+id/photo"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/plan"
+        android:layout_width="@dimen/tab_size"
+        android:layout_height="@dimen/tab_size"
+        android:text="plan"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/guideLineBottom"
+        app:layout_constraintEnd_toStartOf="@+id/appLock"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/guideLineStart"
+        app:layout_constraintTop_toBottomOf="@+id/sport"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/appLock"
+        android:layout_width="@dimen/tab_size"
+        android:layout_height="@dimen/tab_size"
+        android:text="appLock"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/guideLineBottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/plan"
+        app:layout_constraintTop_toBottomOf="@+id/knowledge"
+        app:layout_constraintVertical_bias="0.969"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrierLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="ledger,sport,plan" />
+</android.support.constraint.ConstraintLayout>

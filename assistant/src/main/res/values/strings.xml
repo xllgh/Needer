@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assistant</string>
+    <string name="ledge">Ledge</string>
+    <string name="photo">Photo</string>
+    <string name="sport">Sport</string>
+    <string name="knowledge">Knowledge</string>
+    <string name="plan">Plan</string>
+    <string name="appLock">App Lock</string>
+</resources>
