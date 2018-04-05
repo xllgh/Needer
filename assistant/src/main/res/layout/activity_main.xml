@@ -1,134 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideLineTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="77dp" />
+    <data>
+        <variable
+            name="mainModel"
+            type="com.xll.needer.assistant.viewmodel.MainModel"/>
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideLineBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideLineStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideLineEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.85" />
-
-    <TextView
-        android:id="@+id/ledger"
-        android:layout_width="@dimen/tab_size"
-        android:layout_height="@dimen/tab_size"
-        android:gravity="center"
-        android:text="ledger"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/sport"
-        app:layout_constraintEnd_toStartOf="@+id/photo"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@id/guideLineStart"
-        app:layout_constraintTop_toTopOf="@id/guideLineTop"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
-
-    <TextView
-        android:id="@+id/photo"
-        android:layout_width="@dimen/tab_size"
-        android:layout_height="@dimen/tab_size"
-        android:text="photo"
-        android:gravity="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/knowledge"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/ledger"
-        app:layout_constraintTop_toTopOf="@id/guideLineTop"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        <variable
+            name="mainHandler"
+            type="com.xll.needer.assistant.eventhandler.MainHandler"/>
+    </data>
 
 
-    <TextView
-        android:id="@+id/sport"
-        android:layout_width="@dimen/tab_size"
-        android:layout_height="@dimen/tab_size"
-        android:layout_marginTop="4dp"
-        android:text="Sport"
-        android:gravity="center"
-        app:layout_constraintEnd_toStartOf="@+id/knowledge"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@id/guideLineStart"
-        app:layout_constraintTop_toBottomOf="@+id/ledger"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background2"
+        tools:context=".ui.MainActivity">
 
-    <TextView
-        android:id="@+id/knowledge"
-        android:layout_width="@dimen/tab_size"
-        android:layout_height="@dimen/tab_size"
-        android:layout_marginTop="4dp"
-        android:text="knowledge"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/appLock"
-        app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/sport"
-        app:layout_constraintTop_toBottomOf="@+id/photo"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        <android.support.constraint.Guideline
+            android:id="@+id/guideLineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
 
-    <TextView
-        android:id="@+id/plan"
-        android:layout_width="@dimen/tab_size"
-        android:layout_height="@dimen/tab_size"
-        android:text="plan"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@id/guideLineBottom"
-        app:layout_constraintEnd_toStartOf="@+id/appLock"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@id/guideLineStart"
-        app:layout_constraintTop_toBottomOf="@+id/sport"
-        app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        <android.support.constraint.Guideline
+            android:id="@+id/guideLineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
 
-    <TextView
-        android:id="@+id/appLock"
-        android:layout_width="@dimen/tab_size"
-        android:layout_height="@dimen/tab_size"
-        android:text="appLock"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/guideLineBottom"
-        app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/plan"
-        app:layout_constraintTop_toBottomOf="@+id/knowledge"
-        app:layout_constraintVertical_bias="0.969"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        <android.support.constraint.Guideline
+            android:id="@+id/guideLineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
 
-    <android.support.constraint.Barrier
-        android:id="@+id/barrierLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="start"
-        app:constraint_referenced_ids="ledger,sport,plan" />
-</android.support.constraint.ConstraintLayout>
+        <android.support.constraint.Guideline
+            android:id="@+id/guideLineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <TextView
+            android:id="@+id/ledger"
+            android:layout_width="@dimen/tab_size"
+            android:layout_height="@dimen/tab_size"
+            android:background="@drawable/tab_background"
+            android:clickable="true"
+            android:onClick="@{mainHandler::onClickLedge}"
+            android:drawableTop="@drawable/ledge"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/ledge"
+            android:textColor="@color/textColorWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/sport"
+            app:layout_constraintEnd_toStartOf="@+id/photo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/guideLineStart"
+            app:layout_constraintTop_toTopOf="@id/guideLineTop"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <TextView
+            android:id="@+id/photo"
+            android:layout_width="@dimen/tab_size"
+            android:layout_height="@dimen/tab_size"
+            android:background="@drawable/tab_background"
+            android:clickable="true"
+            android:onClick="@{mainHandler::onClickPhoto}"
+            android:drawableTop="@drawable/photo"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/photo"
+            android:textColor="@color/textColorWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/knowledge"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/ledger"
+            app:layout_constraintTop_toTopOf="@id/guideLineTop"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+
+        <TextView
+            android:id="@+id/sport"
+            android:layout_width="@dimen/tab_size"
+            android:layout_height="@dimen/tab_size"
+            android:onClick="@{mainHandler::onClickSport}"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/tab_background"
+            android:clickable="true"
+            android:drawableTop="@drawable/sport"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/sport"
+            android:textColor="@color/textColorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/plan"
+            app:layout_constraintEnd_toStartOf="@+id/knowledge"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@id/guideLineStart"
+            app:layout_constraintTop_toBottomOf="@+id/ledger"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <TextView
+            android:id="@+id/knowledge"
+            android:layout_width="@dimen/tab_size"
+            android:layout_height="@dimen/tab_size"
+            android:onClick="@{mainHandler::onClickKnowledge}"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/tab_background"
+            android:clickable="true"
+            android:drawableTop="@drawable/knowledge"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/knowledge"
+            android:textColor="@color/textColorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/appLock"
+            app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/sport"
+            app:layout_constraintTop_toBottomOf="@+id/photo"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <TextView
+            android:id="@+id/plan"
+            android:layout_width="@dimen/tab_size"
+            android:layout_height="@dimen/tab_size"
+            android:onClick="@{mainHandler::onClickPlan}"
+            android:background="@drawable/tab_background"
+            android:clickable="true"
+            android:drawableTop="@drawable/plan"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/plan"
+            android:textColor="@color/textColorWhite"
+            app:layout_constraintBottom_toBottomOf="@id/guideLineBottom"
+            app:layout_constraintEnd_toStartOf="@+id/appLock"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/guideLineStart"
+            app:layout_constraintTop_toBottomOf="@+id/sport"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <TextView
+            android:id="@+id/appLock"
+            android:layout_width="@dimen/tab_size"
+            android:layout_height="@dimen/tab_size"
+            android:onClick="@{mainHandler::onClickAppLock}"
+            android:background="@drawable/tab_background"
+            android:clickable="true"
+            android:drawableTop="@drawable/applock"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/appLock"
+            android:textColor="@color/textColorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/guideLineBottom"
+            app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/plan"
+            app:layout_constraintTop_toBottomOf="@+id/knowledge"
+            app:layout_constraintVertical_bias="0.969"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrierLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="ledger,sport,plan" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
