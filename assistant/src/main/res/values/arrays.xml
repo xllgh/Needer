@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="consumptionLevel">
-        <item>理智，正确的消费</item>
-        <item>不必要的消费</item>
-        <item>错误的消费</item>
+        <item>合理支出</item>
+        <item>不必要消费</item>
+        <item>错误消费</item>
     </string-array>
 </resources>

@@ -16,4 +16,5 @@
     <string name="save">保存</string>
     <string name="axisTime">时间</string>
     <string name="axisConsumption">消费</string>
+    <string name="ledge_content_null_prompt">消费内容/金额不能为空</string>
 </resources>

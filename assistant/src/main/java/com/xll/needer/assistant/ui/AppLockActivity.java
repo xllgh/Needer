@@ -1,11 +1,10 @@
 package com.xll.needer.assistant.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xll.needer.assistant.R;
 
-public class AppLockActivity extends AppCompatActivity {
+public class AppLockActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

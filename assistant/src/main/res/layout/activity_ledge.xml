@@ -4,143 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="ledgeHandler"
-            type="com.xll.needer.assistant.eventhandler.LedgeHandler"
-            />
+            type="com.xll.needer.assistant.eventhandler.LedgeHandler" />
+
         <variable
             name="ledgeModel"
-            type="com.xll.needer.assistant.viewmodel.LedgeModel"
-            />
+            type="com.xll.needer.assistant.bean.LedgeModel" />
 
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".ui.LedgeActivity">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/line_height"
-            android:orientation="horizontal"
-            android:id="@+id/consumptionSugar"
-            android:layout_marginTop="@dimen/consumption_magin_top"
-            >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/title_layout" />
+
+            <include
+                layout="@layout/record_ledge_layout"
+                android:animateLayoutChanges="true"
+                android:visibility="@{ledgeModel.recordLedgeVisibility ? View.VISIBLE : View.GONE}"
+                app:ledgeHandler="@{ledgeHandler}"
+                app:ledgeModel="@{ledgeModel}" />
+
+            <lecho.lib.hellocharts.view.PieChartView
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:id="@+id/buyThings"
-                android:text="@string/consumptionSugar"
-                />
+                android:setPieChartData="@{ledgeModel.pieChartData}">
+            </lecho.lib.hellocharts.view.PieChartView>
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:id="@+id/goods"
-                android:inputType="text"
-                android:hint="@string/consumption_hint"
-                android:text="@={ledgeModel.goods}"
-
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line_height"
-            android:orientation="horizontal"
-            android:id="@+id/amount"
-            >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <lecho.lib.hellocharts.view.ColumnChartView
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="@string/amount"
-                android:gravity="center"
-                />
+                android:padding="@dimen/chart_padding"
+                android:paddingBottom="@dimen/chart_padding_bottom"
+                android:setChartData="@{ledgeModel.chartData}" />
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:inputType="numberDecimal"
-                android:text="@={ledgeModel.price}"
-                android:hint="@string/amount_hint"
-                />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line_height"
-            android:orientation="horizontal"
-            android:id="@+id/date"
-            >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:text="@string/date"
-                />
-
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:id="@+id/consumptionDate"
-                android:gravity="start|center_vertical"
-                android:text="@={ledgeModel.consumptionDate}"
-                android:onClick="@{ledgeHandler::onClickConsumptionDate}"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_height="@dimen/line_height"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:id="@+id/consumptionLevel"
-            >
-            <TextView
-                android:text="@string/consumptionLevel"
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                />
-
-            <Spinner
-                android:layout_height="match_parent"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:spinnerMode="dropdown"
-                android:entries="@{ledgeModel.consumptionLevel}"
-                android:selectedItemPosition="@={ledgeModel.levelSelectPosition}"
-                />
-
-            <ImageView
-                android:layout_height="match_parent"
-                android:layout_width="wrap_content"
-                android:id="@+id/save"
-                android:contentDescription="@string/save"
-                android:onClick="@{ledgeHandler::onSave}"
-                android:src="@drawable/save"
-                />
-        </LinearLayout>
-
-        <lecho.lib.hellocharts.view.ColumnChartView
-            android:id="@+id/chart"
-            android:layout_width="match_parent"
-            android:padding="@dimen/chart_padding"
-            android:layout_height="match_parent"
-            android:setCharData="@{ledgeModel.chartData}"
-            android:paddingBottom="@dimen/chart_padding_bottom"
-            />
-
-    </LinearLayout>
 </layout>
 

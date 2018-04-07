@@ -1,10 +1,17 @@
-package com.xll.needer.assistant.viewmodel;
+package com.xll.needer.assistant.bean;
 
 import android.databinding.ObservableArrayList;
+import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 
+import com.xll.needer.assistant.R;
+import com.xll.needer.assistant.Utils.ResUtils;
+
+import java.util.Collections;
+
 import lecho.lib.hellocharts.model.ColumnChartData;
+import lecho.lib.hellocharts.model.PieChartData;
 
 
 /**
@@ -26,10 +33,13 @@ public class LedgeModel {
 
     public ObservableField<ColumnChartData> chartData = new ObservableField<>();
 
+    public ObservableField<PieChartData> pieChartData = new ObservableField<>();
+
+    public ObservableBoolean recordLedgeVisibility = new ObservableBoolean(true);
+
     public LedgeModel() {
-        consumptionLevel.add("理智，正确的消费");
-        consumptionLevel.add("不必要的消费");
-        consumptionLevel.add("错误的消费");
+        String[] resArray = ResUtils.getStringArray(R.array.consumptionLevel);
+        Collections.addAll(consumptionLevel, resArray);
     }
 
     public ObservableField<String> getConsumptionDate() {
@@ -86,5 +96,21 @@ public class LedgeModel {
 
     public void setChartData(ObservableField<ColumnChartData> chartData) {
         this.chartData = chartData;
+    }
+
+    public ObservableField<PieChartData> getPieChartData() {
+        return pieChartData;
+    }
+
+    public void setPieChartData(ObservableField<PieChartData> pieChartData) {
+        this.pieChartData = pieChartData;
+    }
+
+    public ObservableBoolean getRecordLedgeVisibility() {
+        return recordLedgeVisibility;
+    }
+
+    public void setRecordLedgeVisibility(boolean recordLedgeVisibility) {
+        this.recordLedgeVisibility.set(recordLedgeVisibility);
     }
 }

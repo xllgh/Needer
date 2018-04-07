@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="photoItemModel"
+            type="com.xll.needer.assistant.bean.PhotoItemModel"/>
+
+        <variable
+            name="photoItemHandler"
+            type="com.xll.needer.assistant.eventhandler.PhotoItemHandler"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_5">
+
+        <ImageView
+            android:layout_height="@dimen/photo_item_pic_size"
+            android:layout_width="@dimen/photo_item_pic_size"
+            android:id="@+id/image"
+            android:setImage="@{photoItemModel.imgUri}"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/name"
+            android:layout_toRightOf="@id/image"
+            android:layout_toEndOf="@id/image"
+            tools:text="haha"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/photo_item_text_size"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:text="@={photoItemModel.name}"
+            />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_chevron_right"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            android:id="@+id/right"
+            />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/right"
+            android:layout_toLeftOf="@id/right"
+            tools:text="10"
+            android:layout_centerVertical="true"
+            android:text="@={photoItemModel.count}"
+            />
+    </RelativeLayout>
+
+</layout>
+

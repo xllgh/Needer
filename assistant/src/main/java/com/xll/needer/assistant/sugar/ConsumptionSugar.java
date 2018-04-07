@@ -15,6 +15,8 @@ public class ConsumptionSugar extends SugarRecord<ConsumptionSugar>{
     private int month;
     private String day;
     private float sum;
+    private float groupSum;
+
 
     public String getGoods() {
         return goods;
@@ -88,6 +90,14 @@ public class ConsumptionSugar extends SugarRecord<ConsumptionSugar>{
         return this;
     }
 
+    public float getGroupSum() {
+        return groupSum;
+    }
+
+    public void setGroupSum(float groupSum) {
+        this.groupSum = groupSum;
+    }
+
     @Override
     public String toString() {
         return "ConsumptionSugar{" +
@@ -99,6 +109,7 @@ public class ConsumptionSugar extends SugarRecord<ConsumptionSugar>{
                 ", month=" + month +
                 ", day='" + day + '\'' +
                 ", sum=" + sum +
+                ", groupSum=" + groupSum +
                 '}';
     }
 }
