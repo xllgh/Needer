@@ -5,7 +5,7 @@
     <data>
         <variable
             name="photoItemModel"
-            type="com.xll.needer.assistant.bean.PhotoItemModel"/>
+            type="com.xll.needer.assistant.model.PhotoItemModel"/>
 
         <variable
             name="photoItemHandler"

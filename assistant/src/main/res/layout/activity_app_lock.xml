@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.AppLockActivity">
+    tools:context=".ui.AppLockFragment">
 
-</android.support.constraint.ConstraintLayout>
+    <data>
+        <variable
+            name="model"
+            type="com.xll.needer.assistant.model.AppLockModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <lecho.lib.hellocharts.view.ColumnChartView
+            android:id="@+id/appUsageChart"
+            android:padding="@dimen/chart_padding"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:setAppLockData="@{model.data}"
+            />
+
+        <com.xll.needer.assistant.customview.SetTimeView
+            android:layout_width="match_parent"
+            android:id="@+id/timeView"
+            android:layout_height="match_parent"
+            android:gravity="top|end"
+            android:layout_marginTop="@dimen/dimen_5"
+            />
+    </FrameLayout>
+
+
+
+</layout>

@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-import com.xll.needer.assistant.ui.AppLockActivity;
-import com.xll.needer.assistant.ui.KnowledgeActivity;
-import com.xll.needer.assistant.ui.LedgeActivity;
+import com.xll.needer.assistant.ui.AppLockFragment;
+import com.xll.needer.assistant.ui.MurmurFragment;
+import com.xll.needer.assistant.ui.LedgeFragment;
 import com.xll.needer.assistant.ui.PhotoActivity;
 import com.xll.needer.assistant.ui.PlanActivity;
-import com.xll.needer.assistant.ui.SportActivity;
+import com.xll.needer.assistant.ui.SportUtils;
 
 /**
  * Created by Administrator on 2018/3/25.
@@ -23,7 +23,7 @@ public class MainHandler {
     }
 
     public void onClickLedge(View view) {
-        Intent intent = new Intent(activity, LedgeActivity.class);
+        Intent intent = new Intent(activity, LedgeFragment.class);
         activity.startActivity(intent);
     }
 
@@ -33,12 +33,12 @@ public class MainHandler {
     }
 
     public void onClickSport(View view) {
-        Intent intent = new Intent(activity, SportActivity.class);
+        Intent intent = new Intent(activity, SportUtils.class);
         activity.startActivity(intent);
     }
 
     public void onClickKnowledge(View view) {
-        Intent intent = new Intent(activity, KnowledgeActivity.class);
+        Intent intent = new Intent(activity, MurmurFragment.class);
         activity.startActivity(intent);
     }
 
@@ -48,7 +48,7 @@ public class MainHandler {
     }
 
     public void onClickAppLock(View view) {
-        Intent intent = new Intent(activity, AppLockActivity.class);
+        Intent intent = new Intent(activity, AppLockFragment.class);
         activity.startActivity(intent);
     }
 }

@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
 import com.xll.needer.assistant.adapter.PhotoAdapter;
-import com.xll.needer.assistant.bean.PhotoItemModel;
+import com.xll.needer.assistant.model.PhotoItemModel;
 
 import java.util.List;
 
@@ -27,6 +27,9 @@ public class PhotoItemHandler {
 
     @BindingAdapter("android:setPhotoAdapter")
     public static void setAdapter(RecyclerView view, List<PhotoItemModel> list) {
+        if (activity == null) {
+            return;
+        }
         PhotoAdapter adapter = new PhotoAdapter(activity, list);
         view.setAdapter(adapter);
         view.setLayoutManager(new LinearLayoutManager(activity));

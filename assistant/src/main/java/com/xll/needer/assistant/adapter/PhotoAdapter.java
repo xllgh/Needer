@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.xll.needer.assistant.R;
-import com.xll.needer.assistant.bean.PhotoItemModel;
+import com.xll.needer.assistant.model.PhotoItemModel;
 import com.xll.needer.assistant.databinding.PhotoItemBinding;
 
 import java.util.List;

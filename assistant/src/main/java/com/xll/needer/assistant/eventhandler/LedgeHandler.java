@@ -15,7 +15,7 @@ import com.xll.needer.assistant.R;
 import com.xll.needer.assistant.Utils.DatabaseUtils;
 import com.xll.needer.assistant.Utils.ResUtils;
 import com.xll.needer.assistant.sugar.ConsumptionSugar;
-import com.xll.needer.assistant.bean.LedgeModel;
+import com.xll.needer.assistant.model.LedgeModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

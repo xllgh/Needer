@@ -6,7 +6,7 @@
     <data>
         <variable
             name="mainModel"
-            type="com.xll.needer.assistant.bean.MainModel"/>
+            type="com.xll.needer.assistant.model.MainModel"/>
 
         <variable
             name="mainHandler"
@@ -124,7 +124,7 @@
             android:drawableTop="@drawable/knowledge"
             android:focusable="true"
             android:gravity="center"
-            android:text="@string/knowledge"
+            android:text="@string/murmur"
             android:textColor="@color/textColorWhite"
             app:layout_constraintBottom_toTopOf="@+id/appLock"
             app:layout_constraintEnd_toStartOf="@+id/guideLineEnd"

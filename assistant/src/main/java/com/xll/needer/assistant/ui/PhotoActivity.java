@@ -13,8 +13,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.xll.needer.assistant.R;
-import com.xll.needer.assistant.bean.PhotoItemModel;
-import com.xll.needer.assistant.bean.PhotoModel;
+import com.xll.needer.assistant.model.PhotoItemModel;
+import com.xll.needer.assistant.model.PhotoModel;
 import com.xll.needer.assistant.databinding.ActivityPhotoBinding;
 import com.xll.needer.assistant.eventhandler.PhotoItemHandler;
 
@@ -30,14 +30,20 @@ public class PhotoActivity  extends BaseActivity{
      * 在Android23开始，用户开始在应用应用时授予权限
      * **/
 
+    private PhotoModel model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityPhotoBinding bind = DataBindingUtil.setContentView(this, R.layout.activity_photo);
-        query(bind);
+        model = new PhotoModel();
+        PhotoItemHandler handler = new PhotoItemHandler(PhotoActivity.this);
+        bind.setPhotoHandler(handler);
+        bind.setPhotoModel(model);
+        init();
     }
 
-    private void query(final ActivityPhotoBinding bind) {
+    private void query() {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -79,34 +85,21 @@ public class PhotoActivity  extends BaseActivity{
                     }
                 }
 
-                PhotoModel model = new PhotoModel();
                 model.setList(desList);
-                PhotoItemHandler handler = new PhotoItemHandler(PhotoActivity.this);
-                bind.setPhotoHandler(handler);
-                bind.setPhotoModel(model);
             }
         });
     }
 
-    private void init(final ActivityPhotoBinding bind) {
+    private void init() {
         int permissionCheck = ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                Manifest.permission.READ_EXTERNAL_STORAGE);
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            query(bind);
+            query();
             return;
         }
         ActivityCompat.requestPermissions(this,
-                new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
                 MY_WRITE_EXTERNAL_STORAGE);
-
-        /*if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    MY_WRITE_EXTERNAL_STORAGE);
-        }*/
     }
 
     @Override
@@ -115,7 +108,7 @@ public class PhotoActivity  extends BaseActivity{
         if (MY_WRITE_EXTERNAL_STORAGE == requestCode) {
             if (permissions.length >= 1 && grantResults.length >= 1) {
                 if (PackageManager.PERMISSION_GRANTED == grantResults[0]) {
-//                    query(bind);
+                    query();
                     return;
                 }
             }

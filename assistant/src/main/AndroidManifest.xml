@@ -3,35 +3,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.xll.needer.assistant">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
+        android:name=".AssistantApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
-        android:name=".AssistantApplication"
-        tools:replace="android:icon, android:theme"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon, android:theme">
+        <meta-data
+            android:name="DATABASE"
+            android:value="sugar_assistant.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.xll.needer.assistant" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="9LAOpy76fl1qG0TYX7GTWpP2QBgge0Vi" />
 
-        <meta-data android:name="DATABASE" android:value="sugar_assistant.db" />
-        <meta-data android:name="VERSION" android:value="1"/>
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.xll.needer.assistant"/>
-
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.HallActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LedgeActivity" />
-        <activity android:name=".ui.PhotoActivity" />
-        <activity android:name=".ui.SportActivity" />
-        <activity android:name=".ui.KnowledgeActivity" />
-        <activity android:name=".ui.PlanActivity" />
-        <activity android:name=".ui.AppLockActivity"/>
+        <!--<activity android:name=".ui.PhotoActivity" />-->
+        <!--<activity android:name="MurmurFragmentvity" />-->
+        <!--<activity android:name=".ui.PlanActivity" />-->
+        <!--<activity android:name="AppLockFragmentvity" />-->
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".schedular.MyScheduleService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

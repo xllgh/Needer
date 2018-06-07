@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="@layout/activity_ledge">
+    tools:showIn="@layout/layout_ledge">
 
     <data>
 
         <variable
             name="ledgeModel"
-            type="com.xll.needer.assistant.bean.LedgeModel" />
+            type="com.xll.needer.assistant.model.LedgeModel" />
 
         <variable
             name="ledgeHandler"

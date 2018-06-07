@@ -1,1 +1,2 @@
-include ':app', ':fortest', ':assistant'
+include ':assistant', ':demo000'
+include ':xll'
